@@ -80,16 +80,27 @@ class Ui_MainWindow(object):
     def singIn(self):
         if username != self.editUser.text()  or  password != self.editPass.text():
             self.message_box = QMessageBox(MainWindow)
-            self.message_box.setWindowTitle("Information")
-            self.message_box.setIcon(QMessageBox.Information)
+            self.message_box.setWindowTitle("Warning")
+            self.message_box.setIcon(QMessageBox.Warning)
             self.message_box.setText("Wrong Username or password")
             self.message_box.show()
         else:
-            self.stackedWidget.setCurrentIndex(1)  # Index of page 1
+            self.message_box = QMessageBox(MainWindow)
+            self.message_box.setWindowTitle("Information")
+            self.message_box.setIcon(QMessageBox.Information)
+            self.message_box.setText("Wellcome Home")
+            self.message_box.show()
+            self.stackedWidget.setCurrentIndex(1)  
+            
             
             #
     def singOut(self):
-        self.stackedWidget.setCurrentIndex(0)  # Index of page 1
+        self.stackedWidget.setCurrentIndex(0)  
+        self.message_box = QMessageBox(MainWindow)
+        self.message_box.setWindowTitle("Information")
+        self.message_box.setIcon(QMessageBox.Information)
+        self.message_box.setText("Good By")
+        self.message_box.show()
 
 
     def retranslateUi(self, MainWindow):
